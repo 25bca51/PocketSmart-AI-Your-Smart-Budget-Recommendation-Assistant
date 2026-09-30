@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}
+Recommendation History
+{% endblock %}
+
+{% block content %}
+
+<section class="planner-header">
+
+    <span class="badge">
+        Your History
+    </span>
+
+    <h1>
+        Recommendation History
+    </h1>
+
+    <p>
+        Review your previous PocketSmart AI plans.
+    </p>
+
+</section>
+
+
+{% if history %}
+
+<div class="history-list">
+
+    {% for item in history %}
+
+    <article class="history-card large">
+
+        <div>
+
+            <span class="history-type">
+                {{ item.planner_type|upper }}
+            </span>
+
+            <h3>
+                Recommendation #{{ item.id }}
+            </h3>
+
+            <p>
+                Created:
+                {{ item.created_at }}
+            </p>
+
+        </div>
+
+
+        <button
+            class="secondary-button"
+            onclick="viewHistory('{{ item.id }}')"
+        >
+            View Details
+        </button>
+
+    </article>
+
+    {% endfor %}
+
+</div>
+
+{% else %}
+
+<div class="empty-state">
+
+    <div class="large-icon">
+        📋
+    </div>
+
+    <h2>
+        No history yet
+    </h2>
+
+    <p>
+        Generate your first recommendation to see it here.
+    </p>
+
+</div>
+
+{% endif %}
+
+
+<div
+    id="historyModal"
+    class="modal hidden"
+>
+
+    <div class="modal-content">
+
+        <button
+            class="modal-close"
+            onclick="closeModal()"
+        >
+            ×
+        </button>
+
+        <div id="historyDetails"></div>
+
+    </div>
+
+</div>
+
+{% endblock %}

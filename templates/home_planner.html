@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home Interior Planner
+{% endblock %}
+
+{% block content %}
+
+<section class="planner-header">
+
+    <span class="badge">
+        Home Interior Planner
+    </span>
+
+    <h1>
+        Design your space within budget.
+    </h1>
+
+    <p>
+        Tell us your budget, rooms, style and required items.
+    </p>
+
+</section>
+
+
+<div class="planner-layout">
+
+    <section class="form-card">
+
+        <form id="homeForm">
+
+            <label>
+                Total Budget (₹)
+            </label>
+
+            <input
+                type="number"
+                id="homeBudget"
+                min="1"
+                placeholder="100000"
+                required
+            >
+
+
+            <label>
+                Rooms
+            </label>
+
+            <div class="checkbox-grid">
+
+                <label class="checkbox-label">
+                    <input
+                        type="checkbox"
+                        name="rooms"
+                        value="Living Room"
+                        checked
+                    >
+                    Living Room
+                </label>
+
+                <label class="checkbox-label">
+                    <input
+                        type="checkbox"
+                        name="rooms"
+                        value="Kitchen"
+                    >
+                    Kitchen
+                </label>
+
+                <label class="checkbox-label">
+                    <input
+                        type="checkbox"
+                        name="rooms"
+                        value="Bedroom"
+                    >
+                    Bedroom
+                </label>
+
+            </div>
+
+
+            <label>
+                Style
+            </label>
+
+            <select id="homeStyle">
+
+                <option>
+                    Modern
+                </option>
+
+                <option>
+                    Minimalist
+                </option>
+
+                <option>
+                    Traditional
+                </option>
+
+                <option>
+                    Luxury
+                </option>
+
+                <option>
+                    Scandinavian
+                </option>
+
+            </select>
+
+
+            <label>
+                Required Items
+            </label>
+
+            <div class="quantity-grid">
+
+                <div>
+                    <label>Lights</label>
+
+                    <input
+                        type="number"
+                        id="lights"
+                        min="0"
+                        value="2"
+                    >
+                </div>
+
+
+                <div>
+                    <label>Ceiling Fans</label>
+
+                    <input
+                        type="number"
+                        id="fans"
+                        min="0"
+                        value="1"
+                    >
+                </div>
+
+
+                <div>
+                    <label>Dining Tables</label>
+
+                    <input
+                        type="number"
+                        id="diningTables"
+                        min="0"
+                        value="1"
+                    >
+                </div>
+
+
+                <div>
+                    <label>Wall Art</label>
+
+                    <input
+                        type="number"
+                        id="wallArt"
+                        min="0"
+                        value="2"
+                    >
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="primary-button full-width"
+            >
+                Generate Home Plan
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <section
+        id="homeResults"
+        class="results-card"
+    >
+
+        <div class="result-placeholder">
+
+            <div class="large-icon">
+                🏠
+            </div>
+
+            <h2>
+                Your recommendations will appear here
+            </h2>
+
+            <p>
+                Enter your requirements and click
+                Generate Home Plan.
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

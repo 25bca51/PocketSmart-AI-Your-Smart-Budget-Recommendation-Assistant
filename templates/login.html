@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login - PocketSmart AI
+{% endblock %}
+
+{% block content %}
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <span class="badge">
+            Welcome back
+        </span>
+
+        <h1>
+            Login
+        </h1>
+
+        <p>
+            Sign in to access your personalized planners.
+        </p>
+
+        {% if error %}
+
+        <div class="alert error">
+            {{ error }}
+        </div>
+
+        {% endif %}
+
+
+        <form
+            method="POST"
+            action="/login"
+        >
+
+            <label>
+                Email
+            </label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+            >
+
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Your password"
+                required
+            >
+
+
+            <button
+                type="submit"
+                class="primary-button full-width"
+            >
+                Login
+            </button>
+
+        </form>
+
+
+        <p class="auth-footer">
+
+            Don't have an account?
+
+            <a href="/register">
+                Create one
+            </a>
+
+        </p>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard - PocketSmart AI
+{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-header">
+
+    <div>
+
+        <span class="badge">
+            Dashboard
+        </span>
+
+        <h1>
+            Welcome back!
+        </h1>
+
+        <p>
+            {{ user.email }}
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <h2>
+            Choose a planner
+        </h2>
+
+        <p>
+            Tell PocketSmart AI what you want to plan.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <a
+            href="/static/../home-planner"
+            class="feature-card planner-link"
+        >
+
+            <div class="icon">
+                🏠
+            </div>
+
+            <h3>
+                Home Interior
+            </h3>
+
+            <p>
+                Furniture, lighting, decor and more.
+            </p>
+
+        </a>
+
+
+        <a
+            href="/party-planner"
+            class="feature-card planner-link"
+        >
+
+            <div class="icon">
+                🎉
+            </div>
+
+            <h3>
+                Party Planner
+            </h3>
+
+            <p>
+                Food, venue, decoration and entertainment.
+            </p>
+
+        </a>
+
+
+        <a
+            href="/jewelry-planner"
+            class="feature-card planner-link"
+        >
+
+            <div class="icon">
+                💎
+            </div>
+
+            <h3>
+                Jewelry Planner
+            </h3>
+
+            <p>
+                Occasion and outfit-based jewelry planning.
+            </p>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <h2>
+            Recent recommendations
+        </h2>
+
+    </div>
+
+
+    {% if recent %}
+
+        <div class="history-list">
+
+            {% for item in recent %}
+
+            <div class="history-card">
+
+                <div>
+
+                    <span class="history-type">
+                        {{ item.planner_type|upper }}
+                    </span>
+
+                    <p>
+                        Recommendation #{{ item.id }}
+                    </p>
+
+                </div>
+
+                <small>
+                    {{ item.created_at }}
+                </small>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <div class="empty-state">
+
+            <p>
+                You haven't created any recommendations yet.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

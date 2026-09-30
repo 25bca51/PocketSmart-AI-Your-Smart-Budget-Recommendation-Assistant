@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}
+Party Planner
+{% endblock %}
+
+{% block content %}
+
+<section class="planner-header">
+
+    <span class="badge">
+        Party Planner
+    </span>
+
+    <h1>
+        Plan your event without overspending.
+    </h1>
+
+    <p>
+        Allocate your budget across food, venue,
+        decoration and entertainment.
+    </p>
+
+</section>
+
+
+<div class="planner-layout">
+
+    <section class="form-card">
+
+        <form id="partyForm">
+
+            <label>
+                Total Budget (₹)
+            </label>
+
+            <input
+                type="number"
+                id="partyBudget"
+                min="1"
+                placeholder="50000"
+                required
+            >
+
+
+            <label>
+                Number of Guests
+            </label>
+
+            <input
+                type="number"
+                id="partyGuests"
+                min="1"
+                placeholder="50"
+                required
+            >
+
+
+            <label>
+                Event Type
+            </label>
+
+            <select id="eventType">
+
+                <option>
+                    Birthday
+                </option>
+
+                <option>
+                    Wedding
+                </option>
+
+                <option>
+                    Corporate
+                </option>
+
+                <option>
+                    Anniversary
+                </option>
+
+                <option>
+                    Engagement
+                </option>
+
+            </select>
+
+
+            <label>
+                Venue
+            </label>
+
+            <select id="partyVenue">
+
+                <option>
+                    Home
+                </option>
+
+                <option>
+                    Hotel
+                </option>
+
+                <option>
+                    Restaurant
+                </option>
+
+                <option>
+                    Outdoor
+                </option>
+
+            </select>
+
+
+            <label>
+                Preferences
+            </label>
+
+            <textarea
+                id="partyPreferences"
+                rows="5"
+                placeholder="Vegetarian food, simple decoration, music..."
+            ></textarea>
+
+
+            <button
+                type="submit"
+                class="primary-button full-width"
+            >
+                Generate Party Plan
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <section
+        id="partyResults"
+        class="results-card"
+    >
+
+        <div class="result-placeholder">
+
+            <div class="large-icon">
+                🎉
+            </div>
+
+            <h2>
+                Your party plan will appear here
+            </h2>
+
+            <p>
+                Enter your event details to begin.
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

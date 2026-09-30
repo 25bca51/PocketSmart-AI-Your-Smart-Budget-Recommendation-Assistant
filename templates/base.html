@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}
+        PocketSmart AI
+        {% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a
+        href="/"
+        class="brand"
+    >
+        PocketSmart <span>AI</span>
+    </a>
+
+    <nav>
+
+        <a href="/">Home</a>
+
+        {% if request.cookies.get("access_token") %}
+
+            <a href="/dashboard">Dashboard</a>
+
+            <a href="/history">History</a>
+
+            <a href="/logout" class="logout-link">
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="/login">Login</a>
+
+            <a href="/register" class="nav-button">
+                Register
+            </a>
+
+        {% endif %}
+
+    </nav>
+
+</header>
+
+
+<main class="page-container">
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+
+<footer>
+
+    <p>
+        PocketSmart AI · Smart budget planning with AI
+    </p>
+
+</footer>
+
+
+<script
+    src="{{ url_for('static', path='js/app.js') }}"
+></script>
+
+{% block scripts %}
+{% endblock %}
+
+</body>
+</html>

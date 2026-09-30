@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+
+{% block title %}
+Jewelry Planner
+{% endblock %}
+
+{% block content %}
+
+<section class="planner-header">
+
+    <span class="badge">
+        Jewelry Planner
+    </span>
+
+    <h1>
+        Find jewelry that matches your occasion.
+    </h1>
+
+    <p>
+        Add an optional outfit image for multimodal AI analysis.
+    </p>
+
+</section>
+
+
+<div class="planner-layout">
+
+    <section class="form-card">
+
+        <form
+            id="jewelryForm"
+            enctype="multipart/form-data"
+        >
+
+            <label>
+                Budget (₹)
+            </label>
+
+            <input
+                type="number"
+                id="jewelryBudget"
+                name="budget"
+                min="1"
+                placeholder="10000"
+                required
+            >
+
+
+            <label>
+                Occasion
+            </label>
+
+            <select
+                id="occasion"
+                name="occasion"
+            >
+
+                <option>
+                    Wedding
+                </option>
+
+                <option>
+                    Party
+                </option>
+
+                <option>
+                    Office
+                </option>
+
+                <option>
+                    Date
+                </option>
+
+                <option>
+                    Festival
+                </option>
+
+                <option>
+                    Casual
+                </option>
+
+            </select>
+
+
+            <label>
+                Style
+            </label>
+
+            <select
+                id="jewelryStyle"
+                name="style"
+            >
+
+                <option>
+                    Elegant
+                </option>
+
+                <option>
+                    Traditional
+                </option>
+
+                <option>
+                    Minimalist
+                </option>
+
+                <option>
+                    Statement
+                </option>
+
+                <option>
+                    Modern
+                </option>
+
+            </select>
+
+
+            <label>
+                Outfit Description
+            </label>
+
+            <textarea
+                id="outfitDescription"
+                name="outfit_description"
+                rows="4"
+                placeholder="Blue saree with silver details..."
+            ></textarea>
+
+
+            <label>
+                Outfit Image (optional)
+            </label>
+
+            <input
+                type="file"
+                id="outfitImage"
+                name="outfit_image"
+                accept="image/jpeg,image/png,image/webp"
+            >
+
+
+            <button
+                type="submit"
+                class="primary-button full-width"
+            >
+                Generate Jewelry Plan
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <section
+        id="jewelryResults"
+        class="results-card"
+    >
+
+        <div class="result-placeholder">
+
+            <div class="large-icon">
+                💎
+            </div>
+
+            <h2>
+                Your jewelry recommendations will appear here
+            </h2>
+
+            <p>
+                Add your occasion and budget to begin.
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
